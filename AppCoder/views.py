@@ -13,7 +13,7 @@ def about(request):
 
 
 def latestWork(request): 
-    return render(request, "AppCoder/comunidad.html")
+    return render(request, "AppCoder/latestWork.html")
 
 
 def comunidad(request): 
