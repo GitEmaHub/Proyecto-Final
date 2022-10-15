@@ -19,10 +19,7 @@ def latestWork(request):
 
 def comunidad(request): 
 
-    comu1 = Comunidad(nombre="Heberto", apellido="Alvarez")
-    comu1.save()
-
-    return HttpResponse(f"Esta es la comunidad que he creado: {comu1.nombre} y su apellido: {comu1.apellido}.")
+    return render(request, "AppCoder/comunidad.html")
 
 
 def contacto(request): 
@@ -55,7 +52,7 @@ def comuniFormulario(request):
 
 def busquedaComunidad(request):
 
-    return render(request, "AppCoder/busquedaComunidad.html")
+    return render(request, "AppCoder/comunidad.html")
 
 
 def resultados(request):
@@ -65,7 +62,7 @@ def resultados(request):
         nombre = request.GET["nombre"]
         nombres = Comunidad.objects.filter(nombre__iexact=nombre)
 
-        return render(request, "AppCoder/resultados.html", {"nombres":nombres, "nombre":nombre})
+        return render(request, "AppCoder/comunidad.html", {"nombres":nombres, "nombre":nombre})
 
     else:
         respuesta = "No enviaste datos."
