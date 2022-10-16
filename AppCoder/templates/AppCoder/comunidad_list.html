@@ -7,14 +7,20 @@
     <title>Document</title>
 </head>
 <body>
+
+    {% for comunidad in object_list %}
+
+    <p> Nombre: {{comunidad.nombre}} </p>
+
+    <a href="{% url 'ComunidadDetalle' comunidad.id %}"> Ver detalles</a>
     
-    <p>Estamos buscando la persona: {{nombre}}</p>
-
-    {% for nombre in nombres %}
-
-    <p>Nombre: {{nombre.nombre}} --- Apellido: {{nombre.apellido}} </p>
 
     {% endfor %}
+
+    <a href="{% url 'ComunidadCrear' %}">Crear comunidad</a>
+    
+
+    
 
 
 </body>

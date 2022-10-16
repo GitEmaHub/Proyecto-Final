@@ -7,15 +7,20 @@
     <title>Document</title>
 </head>
 <body>
+
+    <form action=""method="POST">{% csrf_token %}
+
+        <table>
+
+            {{miFormulario.as_table}}
+
+        </table>
+
+        <input type="submit" value="Confirmar">
+
+
+
+    </form>
     
-    <p>Estamos buscando la persona: {{nombre}}</p>
-
-    {% for nombre in nombres %}
-
-    <p>Nombre: {{nombre.nombre}} --- Apellido: {{nombre.apellido}} </p>
-
-    {% endfor %}
-
-
 </body>
 </html>

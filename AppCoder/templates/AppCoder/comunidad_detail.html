@@ -8,13 +8,10 @@
 </head>
 <body>
     
-    <p>Estamos buscando la persona: {{nombre}}</p>
+    <p>Nombre: {comunidad.nombre}</p>
+    <p>Apellido: {comunidad.apellido}</p>
 
-    {% for nombre in nombres %}
-
-    <p>Nombre: {{nombre.nombre}} --- Apellido: {{nombre.apellido}} </p>
-
-    {% endfor %}
+    <a href="{% url 'ComunidadLeer' %}"> Regresar </a>
 
 
 </body>

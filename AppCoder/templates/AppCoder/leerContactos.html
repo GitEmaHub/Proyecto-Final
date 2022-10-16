@@ -8,14 +8,14 @@
 </head>
 <body>
     
-    <p>Estamos buscando la persona: {{nombre}}</p>
+    {% for contacto in personas%}
 
-    {% for nombre in nombres %}
-
-    <p>Nombre: {{nombre.nombre}} --- Apellido: {{nombre.apellido}} </p>
+    <p>Nombre: {{contacto.nombre}}</p>
+    <p>Apellido: {{contacto.apellido}}</p>
+    <p>Email: {{contacto.correo}}</p>
+    <p>Motivo: {{contacto.motivo}}</p>
 
     {% endfor %}
-
 
 </body>
 </html>

@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from AppCoder.forms import *
 from AppCoder.models import *
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 
@@ -21,9 +25,6 @@ def comunidad(request):
 
     return render(request, "AppCoder/comunidad.html")
 
-
-def contacto(request): 
-    return render(request, "AppCoder/contacto.html")
 
 
 def comuniFormulario(request):
@@ -68,6 +69,72 @@ def resultados(request):
         respuesta = "No enviaste datos."
 
     return HttpResponse(respuesta)
+
+    
+def contacto(request): 
+    return render(request, "AppCoder/contacto.html")
+
+
+
+class listaComunidad(ListView):
+
+    model = Comunidad()
+
+class detalleComunidad(DetailView):
+
+    model = Comunidad()
+
+class crearComunidad(CreateView):
+
+    model = Comunidad()
+    success_url = "/AppCoder/Comunidad/list"
+    fields = ["nombre", "apellido"]
+
+class actualizarComunidad(UpdateView):
+
+    model = Comunidad()
+    success_url = "/AppCoder/Comunidad/list"
+    fields = ["nombre", "apellido"]
+
+class borrarComunidad(DeleteView):
+
+    model = Comunidad()
+    success_url = "/AppCoder/Comunidad/list"
+    
+
+def leerContactos(request):
+
+    contactos = Contacto.objects.all()
+
+    contexto = {"personas": contactos}
+
+    return render(request, "AppCoder/leerContactos.html", contexto)
+
+def crearContactos(request):
+
+    if request.method == "POST":
+
+        miFormulario = ContactoFormulario(request.POST)
+        
+        if miFormulario.is_valid():
+
+            info = miFormulario.cleaned_data
+
+            contacto = Contacto(nombre=info["nombre"], apellido=info["apellido"], correo=info["correo"])
+
+            contacto.save()
+
+            return render(request, "AppCoder/inicio.html")
+
+    else:
+
+        miFormulario = ContactoFormulario()
+
+        
+    return render(request, "AppCoder/contactoFormulario.html", {"miFormulario":miFormulario})
+
+
+
 
 
 
