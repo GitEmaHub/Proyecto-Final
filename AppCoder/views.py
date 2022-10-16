@@ -76,31 +76,33 @@ def contacto(request):
 
 
 
-class listaComunidad(ListView):
+class ListaComunidad(ListView):
 
-    model = Comunidad()
+    model = Comunidad
 
-class detalleComunidad(DetailView):
+class DetalleComunidad(DetailView):
 
-    model = Comunidad()
+    model = Comunidad
 
-class crearComunidad(CreateView):
+class CrearComunidad(CreateView):
 
-    model = Comunidad()
-    success_url = "/AppCoder/Comunidad/list"
+    model = Comunidad
+    success_url = "/AppCoder/comunidad/list"
     fields = ["nombre", "apellido"]
 
-class actualizarComunidad(UpdateView):
+class ActualizarComunidad(UpdateView):
 
-    model = Comunidad()
-    success_url = "/AppCoder/Comunidad/list"
+    model = Comunidad
+    success_url = "/AppCoder/comunidad/list"
     fields = ["nombre", "apellido"]
 
-class borrarComunidad(DeleteView):
+class BorrarComunidad(DeleteView):
 
-    model = Comunidad()
-    success_url = "/AppCoder/Comunidad/list"
+    model = Comunidad
+    success_url = "/AppCoder/comunidad/list"
     
+
+
 
 def leerContactos(request):
 

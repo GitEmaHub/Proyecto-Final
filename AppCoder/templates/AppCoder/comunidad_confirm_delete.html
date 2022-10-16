@@ -7,13 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-        
-    
-    <p>Nombre: {{comunidad.nombre}}</p>
-    <p>Apellido: {{comunidad.apellido}}</p>
 
-    <a href="{% url 'ComunidadLeer' %}"> Regresar </a>
+    <form action="" method="POST"> {% csrf_token %}
+
+        <p>Estas seguro de eliminar este Post? </p>
+
+        <input type="submit" value="Eliminar ">
 
 
+    </form>
 </body>
 </html>
