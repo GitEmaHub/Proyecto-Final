@@ -25,6 +25,9 @@ class Comunidad(models.Model):
 
 
 class Contacto(models.Model):
+
+    def __str__(self):
+        return f"Nombre: {self.nombre} Apellido:{self.apellido} Correo:{self.correo}" 
     
     nombre = models.CharField(max_length=60)
     apellido = models.CharField(max_length=60)

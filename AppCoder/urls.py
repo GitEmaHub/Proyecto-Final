@@ -14,7 +14,9 @@ urlpatterns = [
     #CRUD de Contactos
 
     path("leerContactos/", leerContactos, name="ContactosLeer"),
-    path("crearContactos/", crearContactos, name="Contactoscrear"),
+    path("crearContactos/", crearContactos, name="ContactosCrear"),
+    path("eliminarContactos/<contactoNombre>/", eliminarContactos, name="ContactosEliminar"),
+    path("editarContactos/<contactoNombre>/", editarContactos, name="ContactosEditar"),
 
     #CRUD de Comunidad
 

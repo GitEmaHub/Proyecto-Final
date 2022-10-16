@@ -7,15 +7,38 @@
     <title>Document</title>
 </head>
 <body>
-    
-    {% for contacto in personas%}
+
+       
+    {% for contacto in personas %} 
 
     <p>Nombre: {{contacto.nombre}}</p>
     <p>Apellido: {{contacto.apellido}}</p>
     <p>Email: {{contacto.correo}}</p>
-    <p>Motivo: {{contacto.motivo}}</p>
+    
+
+    <button>
+
+        <a href="{% url 'ContactosEditar' contacto.nombre %}"> Editar </a>
+
+    </button>
+    <button>
+
+        <a href="{% url 'ContactosEliminar' contacto.nombre %}"> Eliminar </a>
+        
+
+    </button>
 
     {% endfor %}
+
+    <br>
+    <br>
+
+    <button>
+
+        <a href="{% url 'ContactosCrear' %}"> Crear Contacto</a>
+        
+
+    </button>
 
 </body>
 </html>

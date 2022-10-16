@@ -134,6 +134,46 @@ def crearContactos(request):
     return render(request, "AppCoder/contactoFormulario.html", {"miFormulario":miFormulario})
 
 
+def eliminarContactos(request, contactoNombre):
+
+    contacto = Contacto.objects.get(nombre=contactoNombre)
+    contacto.delete()
+
+    contactos = Contacto.objects.all()
+
+    contexto = {"personas":contactos}
+
+    return render(request, "AppCoder/leerContactos.html", contexto)
+
+
+def editarContactos(request, contactoNombre):
+
+    contacto = Contacto.objects.get(nombre=contactoNombre)
+    
+    if request.method == "POST":
+
+        miFormulario = ContactoFormulario(request.POST)
+        
+        if miFormulario.is_valid():
+
+            info = miFormulario.cleaned_data
+
+            contacto.nombre = info["nombre"]
+            contacto.apellido = info["apellido"]
+            contacto.correo = info["correo"]
+
+            contacto.save()
+
+            return render(request, "AppCoder/inicio.html")
+
+    else:
+
+        miFormulario = ContactoFormulario(initial={"nombre":contacto.nombre, "apellido":contacto.apellido, "correo":contacto.correo})
+
+        
+    return render(request, "AppCoder/editarContacto.html", {"miFormulario":miFormulario, "nombre":contactoNombre})
+
+
 
 
 
