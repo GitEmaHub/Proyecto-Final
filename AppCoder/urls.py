@@ -1,5 +1,6 @@
 from django.urls import path
 from AppCoder.views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path("", inicio, name="Inicio"),
@@ -10,6 +11,10 @@ urlpatterns = [
     path("comuniFormulario/", comuniFormulario, name="FormularioComunidad"),
     path("buscarContacto/", busquedaComunidad, name="BuscarContacto"),
     path("resultados/", resultados, name="ResultadosBusqueda"),
+    path("login/", inicioSesion, name="Login"),
+    path("register/", registro, name="Registro"),
+    path("logout/", LogoutView.as_view(template_name="AppCoder/logout.html"), name="Logout"),
+    path("editar/", editarUsuario, name="EditarUsuario"),
 
     #CRUD de Contactos con funciones
 
