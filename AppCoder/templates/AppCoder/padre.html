@@ -29,8 +29,8 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'LatestWork' %}">Latest Work</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Comunidad' %}">Comunidad</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Contacto' %}">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ComunidadLeer' %}">Comunidad</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'ContactosCrear' %}">Contacto</a></li>
 
                         {% if request.user.is_authenticated %} 
 
@@ -71,15 +71,101 @@
                             {% endblock %}
 
                         </h2>
-                        
-
-                        
+                                                
                     </div>
                 </div>
             </div>
         </header>
+
+         <!-- Projects-->
+                                       
+        <section class="projects-section bg-light" id="projects">
+
+            <div class="container px-4 px-lg-5">
+                <!-- Featured Project Row-->
+                
+                {% block Trabajos %}
+                           
+                <!-- Project One Row-->
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'AppCoder/assets/img/bg-01.jpg' %}" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">El Mundial por DTV</h4>
+                                    <p class="mb-0 text-white-50">Una realización de campaña para la Copa del Mundo 2014.</p>
+                                    <button><a href=""> Ver comerciales. </a></button>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Two Row-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'AppCoder/assets/img/bg-02.jpg' %}" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Sueños</h4>
+                                    <p class="mb-0 text-white-50">Otra campaña deportiva, Copa America Centenario desde el sueño de los protagonistas.</p>
+                                    <button><a href=""> Ver comerciales. </a></button>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'AppCoder/assets/img/bg-03.jpg' %}" alt="..." /></div>
+                    <div class="col-lg-6">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-left">
+                                    <h4 class="text-white">A Tiny Audience.</h4>
+                                    <p class="mb-0 text-white-50">Campaña promocional del ciclo musical A Tiny Audience para DTV y HBO.</p>
+                                    <button><a href=""> Ver promociones completas. </a></button>
+                                    <hr class="d-none d-lg-block mb-0 ms-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Two Row-->
+                <div class="row gx-0 justify-content-center">
+                    <div class="col-lg-6"><img class="img-fluid" src="{% static 'AppCoder/assets/img/bg-04.jpg' %}" alt="..." /></div>
+                    <div class="col-lg-6 order-lg-first">
+                        <div class="bg-black text-center h-100 project">
+                            <div class="d-flex h-100">
+                                <div class="project-text w-100 my-auto text-center text-lg-right">
+                                    <h4 class="text-white">Contato</h4>
+                                    <p class="mb-0 text-white-50">Ciclo de conciertos de diversos artistas Latinoamericanos desde el mítico Luna Park.</p>
+                                    <button><a href=""> Ver trailers. </a></button>
+                                    <hr class="d-none d-lg-block mb-0 me-0" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {% endblock %}
+
+
+
+
+
+            </div>
+        </section>
+    
                 
         <!-- Contact-->
+        {% block datos %}
         <section class="contact-section bg-black">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5">
@@ -87,6 +173,9 @@
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
+                                
+
+                                
                                 <h4 class="text-uppercase m-0">Dirección</h4>
                                 <hr class="my-4 mx-auto" />
                                 <div class="small text-black-50">Capital Federal. Buenos Aires. Argentina</div>
@@ -110,6 +199,7 @@
                                 <h4 class="text-uppercase m-0">Phone</h4>
                                 <hr class="my-4 mx-auto" />
                                 <div class="small text-black-50">+54 9 (11) 65134659</div>
+                                
                             </div>
                         </div>
                     </div>
@@ -118,6 +208,8 @@
                     <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                     <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
                     <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                    {% endblock %}
+                    
                 </div>
             </div>
         </section>

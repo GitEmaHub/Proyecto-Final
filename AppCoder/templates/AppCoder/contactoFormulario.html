@@ -1,26 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "AppCoder/padre.html" %}
 
-    <form action=""method="POST">{% csrf_token %}
+{% load static %}
 
-        <table>
+{% block titulo %}
 
-            {{miFormulario.as_table}}
+Contactame
 
+{% endblock %}
+
+
+{% block descripcion %}
+
+<p></p>
+
+<form action=""method="POST">{% csrf_token %}
+    <table>
+        {{miFormulario.as_table}}
         </table>
-
         <input type="submit" value="Confirmar">
 
 
-
-    </form>
+</form>
     
-</body>
-</html>
+
+
+
+{% endblock %}
+
+{% block Trabajos %}
+{% endblock %}

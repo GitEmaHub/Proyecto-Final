@@ -22,6 +22,7 @@ class Comunidad(models.Model):
     
     nombre = models.CharField(max_length=60)
     apellido = models.CharField(max_length=60)
+    
 
 
 class Contacto(models.Model):

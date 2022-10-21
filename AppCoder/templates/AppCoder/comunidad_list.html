@@ -1,34 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-       
-    {% for comunidad in object_list %} 
+{% extends "AppCoder/padre.html" %}
 
-    <p>Nombre: {{comunidad.nombre}} </p>
-    <p>Apellido: {{comunidad.apellido}} </p>
-       
+{% load static %}
 
-    
-    <a href="{% url 'ComunidadDetalle' comunidad.id %}"> Ver Comunidad </a>
-    <a href="{% url 'ComunidadEditar' comunidad.id %}"> Editar Comunidad </a>
-    <a href="{% url 'ComunidadBorrar' comunidad.id %}"> Eliminar Post </a>
-    
-    
 
-    {% endfor %}
+{% block descripcion %}
+Bienvenidos a la Comunidad de Trabajo.
+<br>
+<br>
 
-    <br>
+{% for comunidad in object_list %} 
 
-    <a href="{% url 'ComunidadCrear' %}"> Crear Post </a>
-    
+<p>Nombre: {{comunidad.nombre}} </p>
+<p>Apellido: {{comunidad.apellido}} </p>
 
-    
+        
+<a href="{% url 'ComunidadDetalle' comunidad.id %}"> Ver Post </a>
+<a href="{% url 'ComunidadEditar' comunidad.id %}"> Editar Post </a>
+<a href="{% url 'ComunidadBorrar' comunidad.id %}"> Eliminar Post </a>
 
-</body>
-</html>
+<br>
+
+<button><a href="{% url 'ComunidadCrear' %}"> Crear Post </a></button>
+<br>
+<br>
+
+{% endfor %}
+{% endblock %}
+
+{% block Trabajos %}
+{% endblock %}
+
+{% block datos  %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
